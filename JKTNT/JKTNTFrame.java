@@ -4,6 +4,8 @@ import java.awt.image.BufferedImage;
 
 import javax.swing.*;
 
+import com.form.login.LoginForm;
+
 @SuppressWarnings("serial")
 public class JKTNTFrame extends JFrame {
 
@@ -21,14 +23,23 @@ public class JKTNTFrame extends JFrame {
 	private btnListener clickListener;
 	private Game[] g;
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws InstantiationException, IllegalAccessException,
+			UnsupportedLookAndFeelException, ClassNotFoundException {
+		// gets the sleek look
+		for (UIManager.LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
+			if ("Nimbus".equals(info.getName())) {
+				UIManager.setLookAndFeel(info.getClassName());
+				break;
+			}
+		}
 		new JKTNTFrame();
+
 	}
 
-	public JKTNTFrame() {
+	public JKTNTFrame() throws ClassNotFoundException, InstantiationException, IllegalAccessException,
+			UnsupportedLookAndFeelException {
 		// creates the window
 		super("JKTNT Window");
-
 		// Line of code to set the size and location
 
 		this.setSize(new Dimension(800, 800));
@@ -178,7 +189,8 @@ public class JKTNTFrame extends JFrame {
 		JLabel psw = new JLabel("Password");
 		user = new TextField("", 20);
 		pass = new TextField("", 20);
-
+		user.addActionListener(clickListener);
+		pass.addActionListener(clickListener);
 		mainScreen.add(uname);
 		mainScreen.add(user);
 		mainScreen.add(psw);
@@ -194,8 +206,16 @@ public class JKTNTFrame extends JFrame {
 		mainScreen.add(menuBack);
 		mainScreen.setVisible(true);
 		// this.add(mainScreen, BorderLayout.CENTER);
-
 		setupGames();
+		// Use a document listener to make the screen display the username
+		// When you log in
+//		String username = user.getText();
+//		usernameText = new JLabel(username);
+//		System.out.println("This is the output" + username);
+//	//	usernameText.setText(username);
+//		mainScreen.add(usernameText);
+		// This is for when we include the dB
+		// String sql="SELECT userName FROM employees WHERE UserName=? and Password=?";
 	}
 
 	// goes back to the main game library page, with preloaded games
@@ -258,7 +278,13 @@ public class JKTNTFrame extends JFrame {
 			} else if (btn == login) {
 				// do nothing yet, need diagram
 				login();
-			} else if (btn == clear) {
+			//\\ if (user.getText().toString() != null && pass.getText().toString() != null 
+			//	) {	//&& user.getText().trim().length() > 0 && pass.getText().trim().length() > 0) {
+				System.out.println("Here");
+				if (!user.getText().equals("username") && !pass.getText().equals("password")) {
+					JOptionPane.showMessageDialog(mainScreen, "Please enter valid credentials");
+				}
+		    } else if (btn == clear) {
 
 				// do nothing yet, need diagram
 				mainScreen.setBackground(new Color(255, 255, 255));
