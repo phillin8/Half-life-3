@@ -13,7 +13,7 @@ public class JKTNTPanel extends JPanel {
 	public JKTNTPanel() {
 		super();
 		this.setBackground(Color.GRAY);
-		this.setPreferredSize(new Dimension(1000, 800));
+		//this.setPreferredSize(new Dimension(800, 70));
 	}
 
 	public void displayGames() {
