@@ -13,7 +13,7 @@ public class JKTNTPanel extends JPanel {
 	public JKTNTPanel() {
 		super();
 		this.setBackground(Color.GRAY);
-		//this.setPreferredSize(new Dimension(800, 70));
+		this.setPreferredSize(new Dimension(1000, 800));
 	}
 
 	public void displayGames() {
@@ -21,16 +21,6 @@ public class JKTNTPanel extends JPanel {
 
 		this.revalidate();
 		
-		System.out.println("lol");
-	};
-	
-	public void searchGames(String name) {
-		
-		//this.add(new TextField("Label"));
-		if(name.equals("asd")) {
-			System.out.println("found");
-			this.setBackground(new Color(255,0,0));
-		}
 		System.out.println("lol");
 	};
 }

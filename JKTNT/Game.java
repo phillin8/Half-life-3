@@ -18,6 +18,10 @@ public class Game extends JPanel {
 	private Image image;
 	private JButton btn;
 	private String name;
+	private String description;
+	private String organization;
+	private String storeLink;
+	private String[] platforms;
 	private double price;
 	
 
@@ -71,11 +75,8 @@ public class Game extends JPanel {
 
 		// Starting here, draw our graphics
 		// All graphics get drawn by starting with g.
-		g.drawImage(image, 0, 0, 250,300, this);
-		
-		
+		g.drawImage(image, 0, 0, 250,300, this);	
 	}
-	
 	
 	public JButton getButton() {
 		return btn;
@@ -86,4 +87,60 @@ public class Game extends JPanel {
 	public double getPrice() {
 		return price;
 	}
+
+    /**
+     * @return the description
+     */
+    public String getDescription() {
+        return description;
+    }
+
+    /**
+     * @param description the description to set
+     */
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    /**
+     * @return the organization
+     */
+    public String getOrganization() {
+        return organization;
+    }
+
+    /**
+     * @param organization the organization to set
+     */
+    public void setOrganization(String organization) {
+        this.organization = organization;
+    }
+
+    /**
+     * @return the storeLink
+     */
+    public String getStoreLink() {
+        return storeLink;
+    }
+
+    /**
+     * @param storeLink the storeLink to set
+     */
+    public void setStoreLink(String storeLink) {
+        this.storeLink = storeLink;
+    }
+
+    /**
+     * @return the platforms
+     */
+    public String[] getPlatforms() {
+        return platforms;
+    }
+
+    /**
+     * @param platforms the platforms to set
+     */
+    public void setPlatforms(String[] platforms) {
+        this.platforms = platforms;
+    }
 }
