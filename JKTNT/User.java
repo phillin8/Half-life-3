@@ -12,7 +12,8 @@ public class User {
         userName = user;
     }
     /*
-     * Can look up role of any user.
+     * Can look up role of any user, this needs to be more efficient, 
+     * searching the file everytime is no bueno.
      */
     public boolean isUser(final String userN) {
        return searchFile(userN, 0);
@@ -75,6 +76,9 @@ public class User {
             return false;
         }
     }
+    /*
+     * Returns true if there is a user name and password match, false otherwise.
+     */
     public boolean searchFile(String userN, String passW) {
         try {
             File users = new File("userlogin.csv");

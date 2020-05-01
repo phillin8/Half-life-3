@@ -20,7 +20,5 @@ public class JKTNTPanel extends JPanel {
 		this.setBackground(new Color(255,0,0));
 
 		this.revalidate();
-		
-		System.out.println("lol");
 	};
 }
